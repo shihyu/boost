@@ -1,0 +1,22 @@
+sudo apt-get install mpi-default-dev ##（不知道有没有用）
+sudo apt-get install libbz2-dev
+sudo apt-get install libicu-dev
+sudo apt-get install python-dev
+
+先用下面的命令查看有多少庫可以編譯
+./bootstrap.sh --show-libraries  #先用下面的命令查看有多少庫可以編譯
+
+#編譯
+(1) ./bootstrap.sh
+(2) ./b2  
+(3) The Boost C++ Libraries were successfully built!  // 編譯完成關鍵字
+
+#安裝
+./b2 install --prefix=/usr/local/boost 
+
+
+#配置 ~/.bashrc
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/boost/include
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/boost/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/boost/lib
+
